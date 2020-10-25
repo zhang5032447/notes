@@ -47,10 +47,10 @@ Linux操作
 这是我们20期所有课件笔记的网盘地址，记得保存一下哦，后面的也会全部更新在这里面，按照目录找就可以啦。
 VIP课程课件下载地址：
 （源码笔记资料都在这个网盘里下载哦）
-链接：https://pan.baidu.com/s/1nkY_QoQg9tWWDKxN7sYIHw 
-提取码：s64d
 
+https://pan.baidu.com/s/1gE2kk3RoOFRJmTjOGzgrAw
 
+提取码：o9p3
 
 
 

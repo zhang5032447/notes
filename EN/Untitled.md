@@ -54,4 +54,12 @@
 
     勇往直前，这是我的作战口号。
 
+15. It's our hope that lets us survive.
+
+    是我们的希望让我们生存下去。
+
+16. If you only do what you can do, you'll never be more than you are now.
+
+    如果你只做力所能及的事，你就没法进步。
+
     
