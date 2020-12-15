@@ -62,4 +62,18 @@
 
     如果你只做力所能及的事，你就没法进步。
 
+17. A brave man never surrenders.
+
+    勇者永不屈服。
+
+18. To be whoever you want to be.
+
+    成为你想成为的人。
     
+19. People can't do something themselves, they wanna tell you you can't do it.
+
+     当人们做不到一些事情的时候，他们会告诉你，你也做不到。
+    
+20. if you are not willing to risk thie unusual, you will have to settle for the ordinary.
+
+     如果你不愿冒险做不一样的事，你就只能沦于平凡
