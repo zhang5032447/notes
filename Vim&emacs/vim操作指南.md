@@ -8,3 +8,9 @@
 $ 代表一行的结尾处
 ^ 代表一行的开头处
 
+
+
+
+
+**PIPENV_CACHE_DIR**=/home/ubuntu/.local/share/virtualenvs/vline_live-6TW18q_J
+
