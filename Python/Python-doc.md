@@ -267,7 +267,53 @@ nest_asyncio.apply()
 
 ## metaclass -- 元类
 
+```python
 
+In [51]: class Mymeta(type):
+    ...:     def __init__(self, name, bases, dic):
+    ...:         super().__init__(name, bases, dic)
+    ...:         print('====Mymeta.__init___')
+    ...:         print(self.__name__)
+    ...:         print(dic)
+    ...:         print(self.yaml_tag)
+    ...:     def __new__(cls, *args, **kwargs):
+    ...:         print('===>Mymeta.__new__')
+    ...:         print(cls.__name__)
+    ...:         return type.__new__(cls, *args, **kwargs)
+    ...:     def __call__(cls, *args, **kwargs):
+    ...:         print('===>Mymeta.__call__')
+    ...:         obj = cls.__new__(cls)
+    ...:         cls.__init__(cls, *args, **kwargs)
+    ...:         return obj
+    ...:
+
+In [52]: class Foo(metaclass=Mymeta):
+    ...:     yaml_tag = '!Foo'
+    ...:     def __init__(self, name):
+    ...:         print('Foo.__init__')
+    ...:         self.name = name
+    ...:     def __new__(cls, *args, **kwargs):
+    ...:         print('Foo.__new__')
+    ...:         return object.__new__(cls)
+    ...:
+===>Mymeta.__new__
+Mymeta
+====Mymeta.__init___
+Foo
+{'__module__': '__main__', '__qualname__': 'Foo', 'yaml_tag': '!Foo', '__init__': <function Foo.__init__ at 0x7fc941f75790>, '__new__': <function Foo.__new__ at 0x7fc941f759d0>}
+!Foo
+
+In [53]: Foo(1)
+===>Mymeta.__call__
+Foo.__new__
+Foo.__init__
+Out[53]: <__main__.Foo at 0x7fc941f970d0>
+```
+
+\_\_new\_\_:
+　　Called to create a new instance of class cls
+\_\_init\_\_:
+　　Called when the instance is created.
 
 
 
@@ -384,21 +430,50 @@ Out[166]: True
 
 
 
-## datetime.fromisoformat 和 datetime.isoformat
+## struct --- 将字节串解读为打包的二进制数据
+
+
+
+
+
+## 新式类和经典类
+
+2.x版本默认经典类，3.x只有新式类
+
+**MRO**(基类搜索顺序): 经典类**从左到右深度优先**搜索, 新式类**从左到右广度优先**搜索
 
 ```python
-In [56]: from datetime import datetime, date
+In [38]: class A:
+    ...:     def nmae(self):
+    ...:         print('A')
+    ...:
 
-In [57]: datetime.now().isoformat(sep=' ')
-Out[57]: '2020-12-18 15:48:01.111134'
+In [39]: class B(A):
+    ...:     pass
+    ...:
 
-In [58]: datetime.fromisoformat('2020-12-18T15:46:38.056193')
-Out[58]: datetime.datetime(2020, 12, 18, 15, 46, 38, 56193)
+In [40]: class C(A):
+    ...:     def name(self):
+    ...:         print('C')
+    ...:
 
-In [59]: date.today().isoformat()
-Out[59]: '2020-12-18'
+In [41]: class D(B,C):
+    ...:     pass
+    ...:
 
-In [60]: date.fromisoformat('2020-12-18')
-Out[60]: datetime.date(2020, 12, 18)
+In [42]: d = D()
+
+In [43]: d.name()
+C
 ```
+
+
+
+## eval、exec、complie
+
+eval:  执行单个python表达式，返回改表达式的值
+
+exec: 可执行复杂代码块，无返回值
+
+complie:
 
